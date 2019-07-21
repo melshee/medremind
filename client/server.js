@@ -13,7 +13,7 @@ const router = express.Router();
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb+srv://melissa:<spectra>@spectrahacakthon2019-pseil.mongodb.net/test';
+  'mongodb+srv://melissa:spectra@spectrahacakthon2019-pseil.mongodb.net/medremind';
   // 'mongodb://<your-db-username-here>:<your-db-password-here>@ds249583.mlab.com:49583/fullstack_app';
 
 // connects our back end code with the database
@@ -35,7 +35,9 @@ app.use(logger('dev'));
 // this is our get method
 // this method fetches all available data in our database
 router.get('/getData', (req, res) => {
+  console.log("in getDATA");
   Data.find((err, data) => {
+    console.log("IN getDATA");
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
